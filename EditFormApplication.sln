@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditFormApplication", "EditFormApplication\EditFormApplication.csproj", "{5AC8CA3F-F255-4203-8A34-087A4667987C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A2C682E-140D-4A8B-A092-E1550D34AAFE}
+	EndGlobalSection
+EndGlobal
