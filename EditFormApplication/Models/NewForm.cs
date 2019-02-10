@@ -36,7 +36,7 @@ namespace EditFormApplication.Models
         /// <summary>
         /// Gets or sets field with name="TypeField" 
         /// </summary>
-        public List<SelectListItem> TypeFields { get; set; }
+        public List<string> TypeFields { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether field with name="Check"

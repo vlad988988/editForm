@@ -64,8 +64,7 @@ namespace EditFormApplication.Controllers
             }
             else
             {
-                Response.Write("False");
-                return this.View();
+                return this.HttpNotFound();
             }
         }
 

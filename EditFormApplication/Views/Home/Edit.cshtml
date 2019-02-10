@@ -27,11 +27,12 @@
 
                     @Html.DropDownListFor(model => model.TypeFields[i], new SelectListItem[]
                       {
+                          new SelectListItem(){ Text="Тип поля", Disabled = false},
                          new SelectListItem(){ Text="Один из списка", Value = "textarea"},
-                         new SelectListItem(){ Text="Несколько из списка", Value = "textarea2"},
-                         new SelectListItem(){ Text="Раскрывающийся список", Value = "textarea3"},
+                         new SelectListItem(){ Text="Несколько из списка", Value = "textarea"},
+                         new SelectListItem(){ Text="Раскрывающийся список", Value = "textarea"},
                          new SelectListItem(){ Text="Текст-строка", Value = "input"},
-                         new SelectListItem(){ Text="Текст-абзац", Value = "input2"}},
+                         new SelectListItem(){ Text="Текст-абзац", Value = "input"}},
                          new { @onchange = "addElement(this);" })
                     <div class="form-group">
                         <input type="button" class="btn btn-default btn-xs col-md-1 ml-3" value="X" onclick="removeField(this);"><br>
