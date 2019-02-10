@@ -15,8 +15,8 @@ namespace EditFormApplication
 
         /// <summary>
         /// Sets Bundle
-        /// ///<param name="bundles">BundleCollection type bundles parameter</param>
         /// </summary>
+        /// <param name="bundles">BundleCollection type bundles parameter</param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

@@ -4,11 +4,20 @@
 
 namespace EditFormApplication.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
     /// <summary>
     /// Model for view
     /// </summary>
     public class NewForm
     {
+        /// <summary>
+        /// Gets or sets field with name="HeadForm" 
+        /// </summary>
+        public string Id { get; set; }
+
         /// <summary>
         /// Gets or sets field with name="HeadForm" 
         /// </summary>
@@ -22,21 +31,26 @@ namespace EditFormApplication.Models
         /// <summary>
         /// Gets or sets field with name="HeadField" 
         /// </summary>
-        public string[] HeadField { get; set; }
+        public List<string> HeadFields { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="TypeField" 
         /// </summary>
-        public string[] TypeField { get; set; }
+        public List<SelectListItem> TypeFields { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether field with name="Check"
         /// </summary>
-        public bool Check { get; set; }
+        public List<bool> Check { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="Selected" 
         /// </summary>
-        public string[] Selected { get; set; }
+        public List<string> SelectedOne { get; set; }
+
+        /// <summary>
+        /// Gets or sets field with name="Selected" 
+        /// </summary>
+        public List<string> SelectedTwo { get; set; }
     }
 }

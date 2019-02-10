@@ -4,6 +4,7 @@
 
 namespace EditFormApplication.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using EditFormApplication.Models;
 
@@ -15,24 +16,68 @@ namespace EditFormApplication.Controllers
         [HttpGet]
 
         /// <summary>
-        /// Returns View()
+        /// EditForm Action Result
         /// </summary>
-        /// <return> returns View</ return>
+        /// <returns>The View Result</returns>
         public ActionResult EditForm()
         {
-           return View();
+           return this.View();
         }
 
         [HttpPost]
 
         /// <summary>
-        /// Gets model NewForm from view
+        /// EditForm Action Result
         /// </summary>
-        /// <return> returns Success</ return>
+        /// <param name = "model">NewForm type model parameter</param>
+        /// <returns>The View Result</returns>
         public ActionResult EditForm(NewForm model)
         {
-            Response.Write("Success");
-            return View();
+            string id = Guid.NewGuid().ToString();
+            if (model.Id != null)
+            {
+                this.ViewData["Message"] = model.HeadForm;
+                return this.RedirectToAction("Message", new { model.HeadForm });
+            }
+
+            if (model.Id == null)
+            {
+                model.Id = id;
+
+                this.Session["user"] = model;
+            }
+
+            return this.RedirectToAction("Edit", new { idForm = id });
+        }
+
+        /// <summary>
+        /// Edit Action Result
+        /// </summary>
+        /// <param name = "idForm">String type Id parameter</param>
+        /// <returns>The View Result</returns>
+        public ActionResult Edit(string idForm)
+        {  
+            NewForm model = (NewForm)Session["user"];
+            if (idForm == model.Id)
+            {
+                return this.View(model);
+            }
+            else
+            {
+                Response.Write("False");
+                return this.View();
+            }
+        }
+
+        /// <summary>
+        /// Message Action Result
+        /// </summary>
+        /// <param name = "headForm">String type headForm parameter</param>
+        /// <returns>The View Result</returns>
+        public ActionResult Message(string headForm)
+        {
+            ViewBag.HeadForm = headForm;
+            return this.View();
         }
     }
 }

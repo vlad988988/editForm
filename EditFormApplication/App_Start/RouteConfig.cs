@@ -14,8 +14,8 @@ namespace EditFormApplication
     {
         /// <summary>
         /// Sets route config
-        /// ///<param name = "routes">RouteCollection type routes parameter</ PARAM>
         /// </summary>
+        /// ///<param name = "routes">RouteCollection type routes parameter</param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -23,6 +23,7 @@ namespace EditFormApplication
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "EditForm", id = UrlParameter.Optional }); }
+                defaults: new { controller = "Home", action = "EditForm", id = UrlParameter.Optional });
+        }
     }
 }

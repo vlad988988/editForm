@@ -1,17 +1,14 @@
 ﻿@model EditFormApplication.Models.NewForm
-
 @{
-    ViewBag.Title = "EditForm";
-
+    ViewBag.Title = "Edit";
 }
-
 <div class="container">
     @using (Html.BeginForm("EditForm", "Home", FormMethod.Post))
     {
         <div class="form-group bg-light text-center pt-3 pb-3">
-            <h3>Создание формы</h3>
+            <h3>Редактирование формы</h3>
         </div>
-        @Html.HiddenFor(model=>model.Id)
+        @Html.HiddenFor(model => model.Id)
         <div class="form-group">
             @Html.TextBoxFor(model => model.HeadForm, new { @class = "form-control", @placeholder = "Заголовок формы" })
             @Html.ValidationMessageFor(model => model.HeadForm)
@@ -21,31 +18,31 @@
         </div>
         <h5>Поля формы:</h5><br>
         <div class="border border-secondary rounded p-3" id="container">
-            
+            @for ( var i = 0; i< Model.HeadFields.Count; i++) {
             <div class="field">
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        @Html.TextBoxFor(model => model.HeadFields, new { @class = "form-control form-control-inline", @placeholder = "Заголовок поля" })
+                        @Html.TextBoxFor(model => model.HeadFields[i], new { @class = "form-control form-control-inline", @placeholder = "Заголовок поля" })
                     </div>
-                   
-                    @Html.DropDownListFor(model=>model.TypeFields, new SelectListItem[]
-                         {
-                             new SelectListItem(){ Text="Один из списка", Value = "textarea"},
-                             new SelectListItem(){ Text="Несколько из списка", Value = "textarea2"},
-                             new SelectListItem(){ Text="Раскрывающийся список", Value = "textarea3"},
-                             new SelectListItem(){ Text="Текст-строка", Value = "input"},
-                             new SelectListItem(){ Text="Текст-абзац", Value = "input2"}},
-                             new { @onchange = "addElement(this);" })
+
+                    @Html.DropDownListFor(model => model.TypeFields[i], new SelectListItem[]
+                      {
+                         new SelectListItem(){ Text="Один из списка", Value = "textarea"},
+                         new SelectListItem(){ Text="Несколько из списка", Value = "textarea2"},
+                         new SelectListItem(){ Text="Раскрывающийся список", Value = "textarea3"},
+                         new SelectListItem(){ Text="Текст-строка", Value = "input"},
+                         new SelectListItem(){ Text="Текст-абзац", Value = "input2"}},
+                         new { @onchange = "addElement(this);" })
                     <div class="form-group">
                         <input type="button" class="btn btn-default btn-xs col-md-1 ml-3" value="X" onclick="removeField(this);"><br>
                     </div>
                 </div>
                 <div class='content'>
-                    <div class="contentOne" style="display: none">                   
-                        @Html.TextBoxFor(model => model.SelectedOne, new { @class = "form-control form-control-inline", @placeholder = "placeholder" })
+                    <div class="contentOne" style="display: none">                       
+                        @Html.TextBoxFor(model => model.SelectedOne[i], new { @class = "form-control form-control-inline", @placeholder = "placeholder" })
                     </div>
-                    <div class="contentTwo" style="display: none">                       
-                        @Html.TextAreaFor(model => model.SelectedTwo, new { @class = "form-control" })
+                    <div class="contentTwo" style="display: none">                      
+                        @Html.TextAreaFor(model => model.SelectedTwo[i], new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -55,6 +52,7 @@
                     </div>
                 </div>
             </div>
+            }
         </div>
         <div class="form-group text-right mt-3">
             <input type="button" class="btn btn-success" value="Добавить поле" onclick="addField(this);"><br><br>
@@ -67,4 +65,3 @@
 </div>
 
 <script type="text/javascript" src="~/Scripts/editForm.js"></script>
-
