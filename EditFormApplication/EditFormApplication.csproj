@@ -136,6 +136,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902171437503_InitialCreate.cs" />
+    <Compile Include="Migrations\201902171437503_InitialCreate.Designer.cs">
+      <DependentUpon>201902171437503_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902171702489_MigrateDB.cs" />
+    <Compile Include="Migrations\201902171702489_MigrateDB.Designer.cs">
+      <DependentUpon>201902171702489_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902171903152_MigrateDB2.cs" />
+    <Compile Include="Migrations\201902171903152_MigrateDB2.Designer.cs">
+      <DependentUpon>201902171903152_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Field.cs" />
     <Compile Include="Models\NewForm.cs" />
     <Compile Include="Models\NewFormContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,15 +175,26 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\EditForm.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Message.cshtml" />
+    <Content Include="Views\Home\EditForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902171437503_InitialCreate.resx">
+      <DependentUpon>201902171437503_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902171702489_MigrateDB.resx">
+      <DependentUpon>201902171702489_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902171903152_MigrateDB2.resx">
+      <DependentUpon>201902171903152_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

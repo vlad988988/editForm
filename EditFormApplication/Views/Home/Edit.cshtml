@@ -8,52 +8,49 @@
         <div class="form-group bg-light text-center pt-3 pb-3">
             <h3>Редактирование формы</h3>
         </div>
-        @*@Html.HiddenFor(model => model.Id)*@
         <div class="form-group">
-            @Html.TextBoxFor(model => model.HeadForm, new { @class = "form-control", @placeholder = "Заголовок формы" })
-            @Html.ValidationMessageFor(model => model.HeadForm)
+            @Html.TextBoxFor(model => model.HeadForm, new { @class = "form-control", @placeholder = "Head of Form" })
         </div>
         <div class="form-group">
-            @Html.TextAreaFor(model => model.DescriptionForm, new { @class = "form-control", @placeholder = "Описание формы" })
+            @Html.TextAreaFor(model => model.DescriptionForm, new { @class = "form-control", @placeholder = "Description of Form" })
         </div>
         <h5>Поля формы:</h5><br>
         <div class="border border-secondary rounded p-3" id="container">
-            @*@for ( var i = 0; i< Model.HeadField.Count; i++) {*@
+            @for ( var i = 0; i< ViewBag.Num; i++) {
             <div class="field">
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        @Html.TextBoxFor(model => model.Fields, new { @class = "form-control form-control-inline", @placeholder = "Заголовок поля" })
+                        @Html.TextBoxFor(model => model.Fields[i].HeadField, new { @class = "form-control form-control-inline", @placeholder = "Head of Field" })
                     </div>
-
-                    @*@Html.DropDownListFor(model => model.TypeFields, new SelectListItem[]
+                    @Html.DropDownListFor(model => model.Fields[i].TypeFields, new SelectListItem[]
                       {
-                          new SelectListItem(){ Text="Тип поля", Disabled = false},
-                         new SelectListItem(){ Text="Один из списка", Value = "textarea"},
-                         new SelectListItem(){ Text="Несколько из списка", Value = "textarea"},
-                         new SelectListItem(){ Text="Раскрывающийся список", Value = "textarea"},
-                         new SelectListItem(){ Text="Текст-строка", Value = "input"},
-                         new SelectListItem(){ Text="Текст-абзац", Value = "input"}},
-                         new { @onchange = "addElement(this);" })*@
+                          new SelectListItem(){ Text="Type of field", Disabled = false},
+                         new SelectListItem(){ Text="One of the list", Value = "textarea"},
+                         new SelectListItem(){ Text="several of the list", Value = "textarea2"},
+                         new SelectListItem(){ Text="Drop-down lis", Value = "textarea3"},
+                         new SelectListItem(){ Text="Text-string", Value = "input"},
+                         new SelectListItem(){ Text="Text-paragraph", Value = "input2"}},
+                         new { @onchange = "addElement(this);" })
                     <div class="form-group">
                         <input type="button" class="btn btn-default btn-xs col-md-1 ml-3" value="X" onclick="removeField(this);"><br>
                     </div>
                 </div>
                 <div class='content'>
                     <div class="contentOne" style="display: none">                       
-                        @*@Html.TextBoxFor(model => model.SelectedOne, new { @class = "form-control form-control-inline", @placeholder = "placeholder" })*@
+                        @Html.TextBoxFor(model => model.Fields[i].SelectedOne, new { @class = "form-control form-control-inline", @placeholder = "placeholder" })
                     </div>
                     <div class="contentTwo" style="display: none">                      
-                        @*@Html.TextAreaFor(model => model.SelectedTwo, new { @class = "form-control" })*@
+                        @Html.TextAreaFor(model => model.Fields[i].SelectedTwo, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-check text-right">
                         @*<input class="form-check-input" type="checkbox"/><br>*@
-                        @*@Html.CheckBoxFor(model => model.Check, new { @class = "form-check-input" })*@
+                        @Html.CheckBoxFor(model => model.Fields[i].Check, new { @class = "form-check-input", @value = "Require?" })
                     </div>
                 </div>
             </div>
-            @*}*@
+            }
         </div>
         <div class="form-group text-right mt-3">
             <input type="button" class="btn btn-success" value="Добавить поле" onclick="addField(this);"><br><br>
