@@ -78,15 +78,15 @@ function addElement(elem) {
 //}
 
 
-function removeField(btn) {
-    var divCount = document.getElementsByClassName('field').length;
-    if (divCount === 1) {
-       return alert("error");
-    }
-  var div = btn.closest(".field");
-  if (div) {
-    div.remove();
-  }
-}
+//function removeField(btn) {
+//    var divCount = document.getElementsByClassName('field').length;
+//    if (divCount === 1) {
+//       return alert("error");
+//    }
+//  var div = btn.closest(".field");
+//  if (div) {
+//    div.remove();
+//  }
+//}
 
 
