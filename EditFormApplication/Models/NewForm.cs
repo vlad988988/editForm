@@ -6,6 +6,7 @@ namespace EditFormApplication.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
     /// <summary>
@@ -16,7 +17,8 @@ namespace EditFormApplication.Models
         /// <summary>
         /// Gets or sets field with name="HeadForm" 
         /// </summary>
-        public string Id { get; set; }
+         [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="HeadForm" 
@@ -31,26 +33,49 @@ namespace EditFormApplication.Models
         /// <summary>
         /// Gets or sets field with name="HeadField" 
         /// </summary>
-        public List<string> HeadFields { get; set; }
+        //public HeadField HeadFields { get; set; }
+        public virtual ICollection <Field> Fields { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="TypeField" 
         /// </summary>
-        public List<string> TypeFields { get; set; }
+        //public string TypeFields { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether field with name="Check"
         /// </summary>
-        public List<bool> Check { get; set; }
+
+        //public bool Check { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="Selected" 
         /// </summary>
-        public List<string> SelectedOne { get; set; }
+        //public string SelectedOne { get; set; }
 
         /// <summary>
         /// Gets or sets field with name="Selected" 
         /// </summary>
-        public List<string> SelectedTwo { get; set; }
+        //public string SelectedTwo { get; set; }
+
+        
     }
+
+    public class Field
+    {
+        public int Id { get; set; }
+        public string HeadField { get; set; }
+        public int NewFormId { get; set; }
+
+        public virtual NewForm NewForm { get; set; }
+    }
+    //public class Check
+    //{
+    //    public string MyCheck { get; set; }
+    //}
+
+    //public class Block
+    //{
+    //    public int id { get; set; }
+    //    public string HeadField { get; set; }
+    //}
 }

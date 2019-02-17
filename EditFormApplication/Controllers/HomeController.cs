@@ -5,6 +5,8 @@
 namespace EditFormApplication.Controllers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using EditFormApplication.Models;
 
@@ -13,6 +15,8 @@ namespace EditFormApplication.Controllers
     /// </summary>
     public class HomeController : Controller
     {
+        
+
         [HttpGet]
 
         /// <summary>
@@ -21,6 +25,7 @@ namespace EditFormApplication.Controllers
         /// <returns>The View Result</returns>
         public ActionResult EditForm()
         {
+          
            return this.View();
         }
 
@@ -33,21 +38,23 @@ namespace EditFormApplication.Controllers
         /// <returns>The View Result</returns>
         public ActionResult EditForm(NewForm model)
         {
-            string id = Guid.NewGuid().ToString();
-            if (model.Id != null)
+            //using (NewFormContext db = new NewFormContext()) {
+                //var form = db.NewForms.Find(1);
+                //form.HeadField = model.HeadField;
+                //form.HeadForm = model.HeadForm;
+                //form.DescriptionForm = model.DescriptionForm;
+                foreach(var e in model.Fields)
             {
-                this.ViewData["Message"] = model.HeadForm;
-                return this.RedirectToAction("Message", new { model.HeadForm });
+                Response.Write(e.HeadField);
             }
+               
+                //db.SaveChanges();
 
-            if (model.Id == null)
-            {
-                model.Id = id;
-
-                this.Session["user"] = model;
-            }
-
-            return this.RedirectToAction("Edit", new { idForm = id });
+                
+                //return RedirectToAction("Edit");
+                return View();
+            //}        
+            
         }
 
         /// <summary>
@@ -55,28 +62,33 @@ namespace EditFormApplication.Controllers
         /// </summary>
         /// <param name = "idForm">String type Id parameter</param>
         /// <returns>The View Result</returns>
-        public ActionResult Edit(string idForm)
-        {  
-            NewForm model = (NewForm)Session["user"];
-            if (idForm == model.Id)
-            {
-                return this.View(model);
-            }
-            else
-            {
-                return this.HttpNotFound();
-            }
+        public ActionResult Edit()
+        {
+            using (NewFormContext db = new NewFormContext()) { 
+                var model = db.NewForms.Find(1);
+                
+            return this.View(model);
+        }
         }
 
+        [HttpPost]
+        public ActionResult Edit(NewForm model)
+        {
+            using (NewFormContext db = new NewFormContext())
+            {
+               
+                return this.View(model);
+            }
+        }
         /// <summary>
         /// Message Action Result
         /// </summary>
         /// <param name = "headForm">String type headForm parameter</param>
         /// <returns>The View Result</returns>
-        public ActionResult Message(string headForm)
-        {
-            ViewBag.HeadForm = headForm;
-            return this.View();
-        }
+        //public ActionResult Message(string headForm)
+        //{
+        //    ViewBag.HeadForm = headForm;
+        //    return this.View();
+        //}
     }
 }
