@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditFormApplication", "EditFormApplication\EditFormApplication.csproj", "{5AC8CA3F-F255-4203-8A34-087A4667987C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiApplication", "WebApiApplication\WebApiApplication.csproj", "{F4B3B1AF-14B8-43B8-965D-D8FD169AF93C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AC8CA3F-F255-4203-8A34-087A4667987C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B3B1AF-14B8-43B8-965D-D8FD169AF93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B3B1AF-14B8-43B8-965D-D8FD169AF93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B3B1AF-14B8-43B8-965D-D8FD169AF93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B3B1AF-14B8-43B8-965D-D8FD169AF93C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

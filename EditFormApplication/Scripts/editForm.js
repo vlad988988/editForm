@@ -9,7 +9,7 @@ $(function () {
             "<div class='form-group col-md-5'>" +
             "<input name='Fields[" + i + "].HeadField' class='form-control form-control-inline' placeholder='Head of Field'>" +
             "</div>" +
-            "<select name=Fields[" + i + "].TypeField class='selectBox form-control col-md-6 ml-4' onchange='addElement(this);'>" +
+            "<select name='Fields[" + i + "].TypeFields' class='selectBox form-control col-md-6 ml-4' onchange='addElement(this);'>" +
             "<option>Type of Field</option>"+
             "<option value='textarea'>One of the list</option>" +
             "<option value='textarea'>Several of the list</option>" +
@@ -52,11 +52,11 @@ function addElement(elem) {
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
     if (selectedValue === "textarea" || selectedValue === "textarea2" || selectedValue === "textarea3") {
         currentDivOne.style.display = 'none';
-        currentDivTwo.style.display = 'block';
+        currentDivTwo.style.display = 'block';       
     }
     if (selectedValue === "input" || selectedValue === "input2") {
         currentDivTwo.style.display = 'none';
-        currentDivOne.style.display = 'block';
+        currentDivOne.style.display = 'block';       
     }
 }
 
