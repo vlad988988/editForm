@@ -2,10 +2,9 @@
 //     Company copyright tag.
 // </copyright>
 
-namespace EditFormApplication.Models
+namespace WebApiApplication.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// Model of list of fields
@@ -13,16 +12,9 @@ namespace EditFormApplication.Models
     public class Field
     {
         /// <summary>
-        /// Gets or sets Id 
-        /// </summary>
-        public int Id { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether field with name="Check"
         /// </summary>
         public bool Check { get; set; }
-
-        [Required]
 
         /// <summary>
         /// Gets or sets field with name="HeadField" 
@@ -43,15 +35,5 @@ namespace EditFormApplication.Models
         /// Gets or sets field with name="Selected" 
         /// </summary>
         public string SelectedTwo { get; set; }
-
-        /// <summary>
-        /// Gets or sets NewFormId 
-        /// </summary>
-        public int? NewFormId { get; set; }
-
-        /// <summary>
-        /// Gets or sets NewForm object for one to many 
-        /// </summary>
-        public virtual NewForm NewForm { get; set; }
     }
 }

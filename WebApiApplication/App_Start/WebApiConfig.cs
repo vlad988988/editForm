@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿// <copyright file="WebApiConfig.cs" company="DeliaSoft">
+//     Company copyright tag.
+// </copyright>
 
 namespace WebApiApplication
 {
+    using System;
+    using System.Web.Http;
+
+    /// <summary>
+    /// Filter Configuration
+    /// </summary>
     public static class WebApiConfig
     {
+        /// <summary>
+        /// Sets route config
+        /// </summary>
+        /// <param name = "config">HttpConfiguration type config parameter</param>
         public static void Register(HttpConfiguration config)
         {
             // Конфигурация и службы веб-API
@@ -17,14 +26,8 @@ namespace WebApiApplication
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings
-.Add(new System.Net.Http.Formatting.RequestHeaderMapping("Accept",
-                              "text/html",
-                              StringComparison.InvariantCultureIgnoreCase,
-                              true,
-                              "application/json"));
+                defaults: new { id = RouteParameter.Optional });
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.RequestHeaderMapping("Accept", "text/html", StringComparison.InvariantCultureIgnoreCase, true, "application/json"));
         }
     }
 }

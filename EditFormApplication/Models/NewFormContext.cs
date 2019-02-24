@@ -25,5 +25,4 @@ namespace EditFormApplication.Models
         /// </summary>
         public DbSet<Field> Fields { get; set; }
     }
-
 }

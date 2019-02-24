@@ -14,11 +14,17 @@ namespace EditFormApplication.Controllers
     /// </summary>
     public class HomeController : Controller
     {
-        IRepository<NewForm> db;
+        /// <summary>
+        /// Repository Service
+        /// </summary>
+        private readonly IRepository<NewForm> db;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class
+        /// </summary>
         public HomeController()
         {
-            db = new SQLNewFormRepository();
+            this.db = new SQLNewFormRepository();
         }
 
         [HttpGet]
@@ -43,8 +49,8 @@ namespace EditFormApplication.Controllers
         {    
                 if (ModelState.IsValid)
                 {
-                    db.Create(model);
-                    db.Save();
+                    this.db.Create(model);
+                    this.db.Save();
                     return this.RedirectToAction("Edit", new { model.Id });
                 }
                 else
@@ -65,17 +71,13 @@ namespace EditFormApplication.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var model = db.GetNewForm((int)id);
+            var model = this.db.GetNewForm((int)id);
                 ViewBag.Num = model.Fields.Count;
                 if (model == null)
                 {
                     return this.HttpNotFound();
                 }
-            //for (int i = 0; i < model.Fields.Count; i++)
-            //{
-            //    Response.Write(model.Fields[i].SelectedOne);
-            //    Response.Write(model.Fields[i].SelectedTwo);
-            //}
+
             return this.View(model);
         }
 
@@ -87,9 +89,9 @@ namespace EditFormApplication.Controllers
         [HttpPost]
         public ActionResult Edit(NewForm model)
         {
-            var form = db.GetNewForm(model.Id);
+            var form = this.db.GetNewForm(model.Id);
             form = model;                    
-            db.Save();
+            this.db.Save();
             return this.RedirectToAction("Message", new { model.HeadForm }); 
         }
 

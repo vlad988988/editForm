@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.Linq;
-using System.Data.Odbc;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WebApiApplication.Models;
+﻿// <copyright file="HomeController.cs" company="DeliaSoft">
+//     Company copyright tag.
+// </copyright>
 
 namespace WebApiApplication.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+
+    /// <summary>
+    /// Home Controller
+    /// </summary>
     public class HomeController : Controller
     {
-
-        // GET: Home
+        /// <summary>
+        /// Index Action Result
+        /// </summary>
+        /// <returns>The View Result</returns>
         public ActionResult Index()
         {
                 return this.View();            

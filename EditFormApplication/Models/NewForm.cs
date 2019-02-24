@@ -7,7 +7,6 @@ namespace EditFormApplication.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
 
     /// <summary>
     /// Model for view

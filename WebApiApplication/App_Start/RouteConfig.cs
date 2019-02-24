@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
+﻿// <copyright file="RouteConfig.cs" company="DeliaSoft">
+//     Company copyright tag.
+// </copyright>
 
 namespace WebApiApplication
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
+    /// <summary>
+    /// Routes Configuration
+    /// </summary>
     public class RouteConfig
     {
+        /// <summary>
+        /// Sets route config
+        /// </summary>
+        /// ///<param name = "routes">RouteCollection type routes parameter</param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -16,8 +24,7 @@ namespace WebApiApplication
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

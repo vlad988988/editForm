@@ -9,42 +9,64 @@ namespace WebApiApplication
     using System.Data.SqlClient;
     using WebApiApplication.Models;
 
+    /// <summary>
+    /// Data connect for EditFormTable
+    /// </summary>
     public class EditFormConnect
     {
-        private string connectionString = @"data source = (localdb)\MSSQLLocalDB; Initial Catalog = EditFormApplication.Models.NewFormContext; Integrated Security=True";
+        /// <summary>
+        /// String for connect to data
+        /// </summary>
+        private readonly string connectionString = @"data source = (localdb)\MSSQLLocalDB; Initial Catalog = EditFormApplication.Models.NewFormContext; Integrated Security=True";
 
-        public NewForm getNewFormData(int id, NewForm newForm)
+        /// <summary>
+        /// Get NewFormData
+        /// </summary>
+        /// <param name = "id">integer type id parameter</param>
+        /// <param name = "newForm">NewForm type newForm parameter</param>
+        /// <returns>The View Result</returns>
+        public NewForm GetNewFormData(int id, NewForm newForm)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(this.connectionString))
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand();
-                command.CommandText = "SELECT * FROM NewForms WHERE Id = " + id + "";
-                command.Connection = connection;
+                SqlCommand command = new SqlCommand
+                {
+                    CommandText = "SELECT * FROM NewForms WHERE Id = " + id + " ",
+                    Connection = connection
+                };
                 var reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-
                         newForm.HeadForm = reader.GetString(1);
                         newForm.DescriptionForm = reader.GetString(2);
                     }
                 }
+
                 connection.Close();
                 return newForm;
             }
         }
 
-        public List<Field> getFieldData(int id, List<Field> fields)
+        /// <summary>
+        /// Get NewFormData
+        /// </summary>
+        /// <param name = "id">integer type id parameter</param>
+        /// <param name = "fields">List type newForm parameter</param>
+        /// <returns>The View Result</returns>
+        public List<Field> GetFieldData(int id, List<Field> fields)
             {
-            using (SqlConnection connection2 = new SqlConnection(connectionString))
+            using (SqlConnection connection2 = new SqlConnection(this.connectionString))
             {
                 connection2.Open();
 
-                SqlCommand command2 = new SqlCommand();
-                command2.CommandText = "SELECT * FROM Fields WHERE NewFormId = " + id + "";
-                command2.Connection = connection2;
+                SqlCommand command2 = new SqlCommand
+                {
+                    CommandText = "SELECT * FROM Fields WHERE NewFormId = " + id + " ",
+                    Connection = connection2
+                };
                 var reader2 = command2.ExecuteReader();
                 if (reader2.HasRows)
                 {
@@ -58,9 +80,9 @@ namespace WebApiApplication
                         });
                     }
                 }
+
                 return fields;
             }
-
         }
     }
 }
