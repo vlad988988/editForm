@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html >
+<head ng-app="myapp">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+</head>
+<body ng-controller="formController">
+    <table>
+        <tr ng-repeat="Person in result">
+            <td>{{Person[1].Name}}</td>
+            
+        </tr>
+    </table>
+
+<script type="text/javascript">
+    var myapp = angular.module('myapp', []);
+    myapp.controller('formController', function ($scope, $http) {
+        $http({
+            method: 'GET',
+            url: 'http://localhost:5544/api/web'
+        }).then(function success(response) {
+            $scope.result = response;
+        });
+    });
+</script>  
+<script src="~/Scripts/angular.js"></script>
+</body>
+</html>

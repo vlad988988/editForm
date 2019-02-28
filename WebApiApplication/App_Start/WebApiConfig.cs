@@ -6,6 +6,7 @@ namespace WebApiApplication
 {
     using System;
     using System.Web.Http;
+    using System.Web.Http.Cors;
 
     /// <summary>
     /// Filter Configuration
@@ -22,6 +23,7 @@ namespace WebApiApplication
 
             // Маршруты веб-API
             config.MapHttpAttributeRoutes();
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
