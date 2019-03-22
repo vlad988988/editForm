@@ -26,7 +26,7 @@ namespace WebApiApplication.Controllers
         /// </summary>
         /// <param name = "id">integer type id parameter</param>
         /// <returns>Filled form</returns>
-        public NewForm GetNamesByIndex(int id)
+        public NewForm GetFormByIndex(int id)
         {
             NewForm newForm = new NewForm();
             newForm = this.sql.GetNewFormData(id, newForm);

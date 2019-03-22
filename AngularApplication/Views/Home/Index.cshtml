@@ -8,25 +8,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     
 </head>
-<body ng-controller="formController">
+<body ng-controller="NewFormController">
+
     <table>
-        <tr ng-repeat="Person in result">
-            <td>{{Person[1].Name}}</td>
-            
+        <tr ng-repeat="newForm in result">
+            <td><a href="#/NewForm/{{newForm.Id}}"></a></td>
+
+
         </tr>
     </table>
 
-<script type="text/javascript">
-    var myapp = angular.module('myapp', []);
-    myapp.controller('formController', function ($scope, $http) {
-        $http({
-            method: 'GET',
-            url: 'http://localhost:5544/api/web'
-        }).then(function success(response) {
-            $scope.result = response;
-        });
-    });
-</script>  
-<script src="~/Scripts/angular.js"></script>
+    <script type="text/javascript">
+                    //var myapp = angular.module('myapp', []);
+                    //myapp.controller('formController', function ($scope, $http) {
+                    //    $http({
+                    //        method: 'GET',
+                    //        url: 'http://localhost:5544/api/web'
+                    //    }).then(function success(response) {
+                    //        $scope.result = response;
+                    //    });
+                    //});
+    </script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/app/Scripts/app.js"></script>
+    <script src="~/app/Controllers/NewFormController.js"></script>
 </body>
 </html>

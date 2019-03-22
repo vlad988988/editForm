@@ -1,20 +1,10 @@
-// <copyright file="201902171437503_InitialCreate.cs" company="DeliaSoft">
-//     Company copyright tag.
-// </copyright>
-
 namespace EditFormApplication.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-
-    /// <summary>
-    /// Class migration
-    /// </summary>
-    public partial class InitialCreate : DbMigration
+    
+    public partial class MigrateDB : DbMigration
     {
-        /// <summary>
-        /// Up method for data
-        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -23,7 +13,8 @@ namespace EditFormApplication.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Check = c.Boolean(nullable: false),
-                        HeadField = c.String(),
+                        HeadField = c.String(nullable: false),
+                        Selected = c.String(),
                         NewFormId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -35,20 +26,19 @@ namespace EditFormApplication.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        HeadForm = c.String(),
+                        HeadForm = c.String(nullable: false),
+                        DescriptionForm = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
+            
         }
-
-        /// <summary>
-        /// Down method for data
-        /// </summary>
+        
         public override void Down()
         {
-            this.DropForeignKey("dbo.Fields", "NewFormId", "dbo.NewForms");
-            this.DropIndex("dbo.Fields", new[] { "NewFormId" });
-            this.DropTable("dbo.NewForms");
-            this.DropTable("dbo.Fields");
+            DropForeignKey("dbo.Fields", "NewFormId", "dbo.NewForms");
+            DropIndex("dbo.Fields", new[] { "NewFormId" });
+            DropTable("dbo.NewForms");
+            DropTable("dbo.Fields");
         }
     }
 }

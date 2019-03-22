@@ -40,6 +40,7 @@ namespace WebApiApplication
                 {
                     while (reader.Read())
                     {
+                        newForm.Id = reader.GetInt32(0);
                         newForm.HeadForm = reader.GetString(1);
                         newForm.DescriptionForm = reader.GetString(2);
                     }
@@ -75,7 +76,7 @@ namespace WebApiApplication
                         fields.Add(new Field()
                         {
                             HeadField = reader2.GetString(2),
-                            TypeFields = reader2.GetString(4),
+                            Selected = reader2.GetString(4),
                             Check = reader2.GetBoolean(1)
                         });
                     }

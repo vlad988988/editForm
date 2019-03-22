@@ -12,6 +12,8 @@ namespace WebApiApplication.Models
     /// </summary>
     public class NewForm
     {
+        public int Id { get; set; }
+
         /// <summary>
         /// Gets or sets field with name="HeadForm" 
         /// </summary>

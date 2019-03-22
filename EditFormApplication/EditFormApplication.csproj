@@ -137,17 +137,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201902171437503_InitialCreate.cs" />
-    <Compile Include="Migrations\201902171437503_InitialCreate.Designer.cs">
-      <DependentUpon>201902171437503_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171702489_MigrateDB.cs" />
-    <Compile Include="Migrations\201902171702489_MigrateDB.Designer.cs">
-      <DependentUpon>201902171702489_MigrateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902171903152_MigrateDB2.cs" />
-    <Compile Include="Migrations\201902171903152_MigrateDB2.Designer.cs">
-      <DependentUpon>201902171903152_MigrateDB2.cs</DependentUpon>
+    <Compile Include="Migrations\201903222150057_MigrateDB.cs" />
+    <Compile Include="Migrations\201903222150057_MigrateDB.Designer.cs">
+      <DependentUpon>201903222150057_MigrateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Field.cs" />
@@ -190,14 +182,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902171437503_InitialCreate.resx">
-      <DependentUpon>201902171437503_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171702489_MigrateDB.resx">
-      <DependentUpon>201902171702489_MigrateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902171903152_MigrateDB2.resx">
-      <DependentUpon>201902171903152_MigrateDB2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903222150057_MigrateDB.resx">
+      <DependentUpon>201903222150057_MigrateDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

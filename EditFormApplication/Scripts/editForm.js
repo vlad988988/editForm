@@ -9,25 +9,12 @@ $(function () {
             "<div class='form-group col-md-5'>" +
             "<input name='Fields[" + i + "].HeadField' class='form-control form-control-inline' placeholder='Head of Field'>" +
             "</div>" +
-            "<select name='Fields[" + i + "].TypeFields' class='selectBox form-control col-md-6 ml-4' onchange='addElement(this);'>" +
-            "<option>Type of Field</option>"+
-            "<option value='textarea'>One of the list</option>" +
-            "<option value='textarea'>Several of the list</option>" +
-            "<option value='textarea'>Drop-down list</option>" +
-            "<option value='input'>Text-string</option>" +
-            "<option value='input'>Text-paragraph</option>" +
-            "</select>" +
             "<div class='form-group'>" +
             "<input type='submit' class='btn btn-default btn-xs col-md-1 ml-3' value='X' onclick='removeField(this);'><br>" +
             "</div>" +
             "</div>" +
-            "<div class='content'>" +
-            "<div class='contentOne' style='display: none'>"+
-            "<input name='Fields[" + i + "].SelectedTwo' class = 'form-control'>" +
-            "</input>" +
-            "</div>"+
-            "<div class='contentTwo' style='display: none'>" +          
-            "<textarea name='Fields[" + i + "].SelectedOne' class = 'form-control form - control - inline' placeholder = 'placeholder'>" +
+            "<div class='content'>" +          
+            "<textarea name='Fields[" + i + "].Selected' class = 'form-control form - control - inline' placeholder = 'placeholder'>" +
             "</textarea>" +
             "</div>"+
             "</div>" +
@@ -42,23 +29,23 @@ $(function () {
     });
 });
 
-function addElement(elem) {
-    var parent = elem.parentNode;
-    var parentTwo = parent.parentNode;
-    var currentDiv = parentTwo.querySelector('.content');
-    var currentDivOne = currentDiv.querySelector('.contentOne');
-    var currentDivTwo = currentDiv.querySelector('.contentTwo');
-    var selectBox = elem.closest("select");
-    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-    if (selectedValue === "textarea" || selectedValue === "textarea2" || selectedValue === "textarea3") {
-        currentDivOne.style.display = 'none';
-        currentDivTwo.style.display = 'block';       
-    }
-    if (selectedValue === "input" || selectedValue === "input2") {
-        currentDivTwo.style.display = 'none';
-        currentDivOne.style.display = 'block';       
-    }
-}
+//function addElement(elem) {
+//    var parent = elem.parentNode;
+//    var parentTwo = parent.parentNode;
+//    var currentDiv = parentTwo.querySelector('.content');
+//    var currentDivOne = currentDiv.querySelector('.contentOne');
+//    var currentDivTwo = currentDiv.querySelector('.contentTwo');
+//    var selectBox = elem.closest("select");
+//    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+//    if (selectedValue === "textarea" || selectedValue === "textarea2" || selectedValue === "textarea3") {
+//        currentDivOne.style.display = 'none';
+//        currentDivTwo.style.display = 'block';       
+//    }
+//    if (selectedValue === "input" || selectedValue === "input2") {
+//        currentDivTwo.style.display = 'none';
+//        currentDivOne.style.display = 'block';       
+//    }
+//}
 
 function removeField(btn) {
     var divCount = document.getElementsByClassName('field').length;

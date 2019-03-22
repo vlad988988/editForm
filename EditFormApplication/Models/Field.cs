@@ -30,19 +30,9 @@ namespace EditFormApplication.Models
         public string HeadField { get; set; }
 
         /// <summary>
-        /// Gets or sets field with name="TypeField" 
-        /// </summary>
-        public string TypeFields { get; set; }
-
-        /// <summary>
         /// Gets or sets field with name="Selected" 
         /// </summary>
-        public string SelectedOne { get; set; }
-
-        /// <summary>
-        /// Gets or sets field with name="Selected" 
-        /// </summary>
-        public string SelectedTwo { get; set; }
+        public string Selected { get; set; }
 
         /// <summary>
         /// Gets or sets NewFormId 

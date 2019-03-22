@@ -19,28 +19,16 @@
             @for ( var i = 0; i< ViewBag.Num; i++) {
             <div class="field">
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group col-md-10">
                         @Html.TextBoxFor(model => model.Fields[i].HeadField, new { @class = "form-control form-control-inline", @placeholder = "Head of Field" })
                     </div>
-                    @Html.DropDownListFor(model => model.Fields[i].TypeFields, new SelectListItem[]
-                      {
-                          new SelectListItem(){ Text="Type of field", Disabled = false},
-                         new SelectListItem(){ Text="One of the list", Value = "textarea"},
-                         new SelectListItem(){ Text="several of the list", Value = "textarea2"},
-                         new SelectListItem(){ Text="Drop-down lis", Value = "textarea3"},
-                         new SelectListItem(){ Text="Text-string", Value = "input"},
-                         new SelectListItem(){ Text="Text-paragraph", Value = "input2"}},
-                         new { @onchange = "addElement(this);" })
                     <div class="form-group">
                         <input type="button" class="btn btn-default btn-xs col-md-1 ml-3" value="X" onclick="removeField(this);"><br>
                     </div>
                 </div>
                 <div class='content'>
-                    <div class="contentOne" style="display: none">                       
-                        @Html.TextBoxFor(model => model.Fields[i].SelectedOne, new { @class = "form-control form-control-inline", @placeholder = "placeholder" })
-                    </div>
-                    <div class="contentTwo" style="display: none">                      
-                        @Html.TextAreaFor(model => model.Fields[i].SelectedTwo, new { @class = "form-control" })
+                    <div class="contentTwo">                      
+                        @Html.TextAreaFor(model => model.Fields[i].Selected, new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="form-group">
